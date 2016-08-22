@@ -1,14 +1,15 @@
 JavaScript FSM (Finite State Machine)
--------------------------------------
+=====================================
 
 What is a FSM?
-==============
+--------------
+
 FSM is a model for keeping track of a finite number of states, where the machine can only be in one state at the time; the _current state_. It can change state to the _next state_ when an _event_ is triggered. This can then perform some sort of _action_. The machine is usually defined as a table with four columns: _Current State_, _Transition Event_, _Next State_ and _Action_.
 
 Because of the FSM model's simplicity and ability to handle asynchronous code, it can be in good use in a single-page application, among others.
 
 Usage
-=====
+-----
 
 _Constructor:_ Create a new FSM object by calling the constuctor, where the first argument is the default state.
 
@@ -44,10 +45,10 @@ _fireEvent_: Fires an transition event to the machine and will change the state 
     fsm.fireEvent('load');
 
 Example
-=======
+-------
 
 Download
-========
+--------
 
 Clone the project:
 
@@ -55,13 +56,13 @@ Clone the project:
 
 CDN:
 
-    https://rawgit.com/hexgecko/js-fsm/bin/0.0.3/fsm.js
+    https://rawgit.com/hexgecko/js-fsm/master/bin/0.0.3/fsm.js
 
 CDN minified:
 
-    https://rawgit.com/hexgecko/js-fsm/bin/0.0.3/fsm.min.js
+    https://rawgit.com/hexgecko/js-fsm/master/bin/0.0.3/fsm.min.js
 
 License
-=======
+-------
 
 This content is released under the [MIT License](http://opensource.org/licenses/MIT).
