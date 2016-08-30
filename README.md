@@ -47,11 +47,11 @@ _fireEvent_: Fires a transition event with arguments. It will call the action wi
 Example: Single Page Website
 ----------------------------
 
-This demo shows a simple [Single Page Website](https://hexgecko.github.io/js-fsm/webpage/#home) where the page is load as a template with a ajax call using jQuery. Source code for the project can be found [here](https://github.com/hexgecko/js-fsm/tree/master/docs/webpage).
+This demo shows a simple [Single Page Website](https://hexgecko.github.io/js-fsm/single-page-website/#home) where the page is load as a template with an ajax call using jQuery. Source code for the project can be found [here](https://github.com/hexgecko/js-fsm/tree/master/docs/single-page-website).
 
 The site have the following state:
 
-![Show the states the single-page website has](https://raw.githubusercontent.com/hexgecko/js-fsm/master/docs/webpage/img/states.jpg)
+![Show the states the single-page website has](https://raw.githubusercontent.com/hexgecko/js-fsm/master/docs/single-page-website/img/states.jpg)
 
 _where #x and #y are hash addresses to a page._
 
