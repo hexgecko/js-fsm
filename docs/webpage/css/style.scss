@@ -3,6 +3,8 @@ $header-background-color: #ff751a;
 $header-selected-color:   #cc5200;
 $header-wait-background:  #f3f3f3;
 
+$max-width:               700px;
+
 @mixin display-flex {
   display: -webkit-box;
   display: -webkit-flex;
@@ -49,11 +51,18 @@ $header-wait-background:  #f3f3f3;
 body {
   margin: 0;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
-  max-width: 700px;
-  margin: 0 auto;
+  max-width: $max-width;
 }
 
 header {
+  position: fixed;
+  width: 100%;
+  max-width: $max-width;
+  top: 0;
+  left: 0;
+  
+  @include box-shadow( 0px 5px 15px 0px rgba(0,0,0,0.75));
+  
   background-color: $header-background-color;
   
   #logo {
@@ -128,8 +137,9 @@ header {
 }
 
 #content {
-  margin-left: 0.3em;
-  margin-right: 0.3em;
+  margin-top: 120px;
+  margin-left: 0.8em;
+  margin-right: 0.8em;
   
   >a {
     display: block;

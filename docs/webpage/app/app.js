@@ -102,6 +102,9 @@ for(var hash in pageList) {
         // remove the loading element
         $('#loader').removeClass('show');
         $('.spinner').removeClass('show');
+        
+        // scroll to the top when a page is loaded
+        $('html, body').animate({ scrollTop: 0 }, 0);
       }
       
       // reload the current page in case the user change the url while loading

@@ -1,14 +1,21 @@
-/* line 49, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
+/* line 51, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
 body {
   margin: 0;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
-  max-width: 700px;
-  margin: 0 auto; }
+  max-width: 700px; }
 
-/* line 56, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
+/* line 57, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
 header {
+  position: fixed;
+  width: 100%;
+  max-width: 700px;
+  top: 0;
+  left: 0;
+  -webkit-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
   background-color: #ff751a; }
-  /* line 59, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
+  /* line 68, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
   header #logo {
     display: -webkit-box;
     display: -webkit-flex;
@@ -16,11 +23,11 @@ header {
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex; }
-    /* line 61, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
+    /* line 70, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
     header #logo img {
       width: 256px;
       height: 64px; }
-    /* line 66, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
+    /* line 75, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
     header #logo .spacer {
       -webkit-box-flex: 1;
       -webkit-flex: 1;
@@ -28,7 +35,7 @@ header {
       -moz-flex: 1;
       -ms-flex: 1;
       flex: 1; }
-    /* line 70, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
+    /* line 79, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
     header #logo .spinner {
       visibility: hidden;
       margin-top: 6px;
@@ -66,13 +73,13 @@ header {
     -webkit-transform: rotate(360deg);
     -moz-transform: rotate(360deg);
     transform: rotate(360deg); } }
-      /* line 97, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
+      /* line 106, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
       header #logo .spinner.show {
         visibility: visible;
         -webkit-animation-play-state: running;
         -moz-animation-play-state: running;
         animation-play-state: running; }
-  /* line 104, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
+  /* line 113, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
   header nav {
     display: -webkit-box;
     display: -webkit-flex;
@@ -81,31 +88,32 @@ header {
     display: -ms-flexbox;
     display: flex;
     padding-bottom: 0.3em; }
-    /* line 108, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
+    /* line 117, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
     header nav a {
       color: #fff;
       padding: 0.05em 0.4em 0.15em 0.4em;
       text-decoration: none;
       text-transform: uppercase;
       border-right: 2px solid #cc5200; }
-      /* line 118, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
+      /* line 127, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
       header nav a:first-child {
         border-left: 2px solid #cc5200;
         margin-left: 0.3em; }
-      /* line 123, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
+      /* line 132, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
       header nav a.selected {
         background-color: #cc5200; }
 
-/* line 130, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
+/* line 139, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
 #content {
-  margin-left: 0.3em;
-  margin-right: 0.3em; }
-  /* line 134, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
+  margin-top: 120px;
+  margin-left: 0.8em;
+  margin-right: 0.8em; }
+  /* line 144, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
   #content > a {
     display: block;
     margin-bottom: 1.0em; }
 
-/* line 140, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
+/* line 150, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
 #loader {
   visibility: hidden;
   position: fixed;
@@ -113,34 +121,34 @@ header {
   left: 0px;
   width: 100%;
   height: 100%; }
-  /* line 148, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
+  /* line 158, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
   #loader.show {
     visibility: visible; }
 
-/* line 153, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
+/* line 163, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
 .blog-box {
   border: 1px dashed #cc5200;
   margin-bottom: 1.5em;
   -webkit-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.75); }
-  /* line 159, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
+  /* line 169, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
   .blog-box > h2 {
     margin-left: 0.4em;
     margin-right: 0.4em;
     margin-bottom: 0.2em; }
-  /* line 165, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
+  /* line 175, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
   .blog-box > p {
     margin-left: 0.6em;
     margin-right: 0.6em; }
-  /* line 170, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
+  /* line 180, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
   .blog-box > a {
     display: block;
     margin-left: 0.6em;
     margin-right: 0.6em;
     margin-bottom: 1.0em; }
 
-/* line 179, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
+/* line 189, /Users/selti99/Desktop/js-fsm/docs/webpage/css/style.scss */
 footer {
   background-color: #ff751a;
   color: #fff;
