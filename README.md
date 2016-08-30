@@ -23,13 +23,13 @@ _Append:_ Takes a scope function as an argument, this function should then retur
         /* initalize things here... */
       }
       
-      function onLoad() {
+      function onLoad(templatUrl) {
         /* load and initalize a templates here... */
       }
       
       return [
         ['init', 'ready', 'home', onReady],
-        [/\w+/,  'load'   'home', onLoad]
+        [/^\w+/,  'load'   'home', onLoad]
       ];
     })
   
@@ -40,12 +40,22 @@ The state table has the following structure: [_Current State_, _Transition Event
   - _Next State_: Name of the next state. If a '<' given it will go to the last state.
   - _Action_: Function that perform some kind of action, can be omitted.
 
-_fireEvent_: Fires an transition event to the machine and will change the state if applicable.
+_fireEvent_: Fires a transition event with arguments. It will call the action with the given arguments and change the state according to the FSM table. If there are no current state and event par an error will be thrown.
 
-    fsm.fireEvent('load');
+    fsm.fireEvent('load', "page/home.template.html");
 
-Example
--------
+Example: Single Page Website
+----------------------------
+
+This demo shows a simple [Single Page Website](https://hexgecko.github.io/js-fsm/webpage/#home) where the page is load as a template with a ajax call using jQuery. Source code for the project can be found [here](https://github.com/hexgecko/js-fsm/tree/master/docs/webpage).
+
+The site have the following state:
+
+[Show the states the single-page website has](/docs/webpage/img/state.jpg)
+
+_where #x and #y are hash addresses to a page._
+
+The default state is the '!' where it wait for the document to get ready. When ready it inialize the logic to send an event when the hash address changes. If a hash address event is send it goes to the loading state for that page, here it loads the page template and display a waiting spinner while it's loaded. When the loaded is complete it will change the state to the #x state and wait for the next #y adress to change. There is a special case if the user try to change page while it's loading, the site will then be reloaded with the new hash page.
 
 Download
 --------
