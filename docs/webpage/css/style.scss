@@ -1,0 +1,184 @@
+$header-font-color:       #fff;
+$header-background-color: #ff751a;
+$header-selected-color:   #cc5200;
+$header-wait-background:  #f3f3f3;
+
+@mixin display-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin flex($fg: 1, $fs: null, $fb: null) {
+  -webkit-box-flex: $fg;
+  -webkit-flex: $fg $fs $fb;
+  -moz-box-flex: $fg;
+  -moz-flex: $fg $fs $fb;
+  -ms-flex: $fg $fs $fb;
+  flex: $fg $fs $fb;
+}
+
+@mixin rotate($val) {
+  -webkit-transform: rotate($val);
+  -moz-transform: rotate($val);
+  transform: rotate($val);
+}
+
+@mixin animation($animation) {
+  -webkit-animation: $animation;
+  -moz-animation: $animation;
+  animation: $animation;
+}
+
+
+@mixin box-shadow($values) {
+  -webkit-box-shadow: $values;
+  -moz-box-shadow: $values;
+  box-shadow: $values;
+}
+
+@mixin animation-play-state($value) {
+  -webkit-animation-play-state: $value;
+  -moz-animation-play-state: $value;
+  animation-play-state: $value;
+}
+
+body {
+  margin: 0;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+header {
+  background-color: $header-background-color;
+  
+  #logo {
+    @include display-flex();
+    img {
+      width: 256px;
+      height: 64px;
+    }
+    
+    .spacer {
+      @include flex(1);
+    }
+    
+    .spinner {
+      @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+      
+      @-moz-keyframes spin {
+        0% { -moz-transform: rotate3d(0deg); }
+        100% { -moz-transform: rotate3d(360deg); }
+      }
+      
+      @keyframes spin {
+        0% { @include rotate(0deg); }
+        100% { @include rotate(360deg); }
+      }
+      
+      visibility: hidden;
+      margin-top: 6px;
+      margin-right: 8px;
+      border: 14px solid $header-wait-background;
+      border-top: 14px solid $header-selected-color;
+      border-radius: 50%;
+      width: 14px;
+      height: 14px;
+      @include animation(spin 0.8s linear infinite);
+      @include animation-play-state(paused);
+      
+      &.show {
+        visibility: visible;
+        @include animation-play-state(running);
+      }
+    }
+  }
+  
+  nav {
+    @include display-flex();
+    padding-bottom: 0.3em;
+    
+    a {
+      color: $header-font-color;
+      
+      padding: 0.05em 0.4em 0.15em 0.4em;
+      
+      text-decoration: none;
+      text-transform: uppercase;
+      
+      border-right: 2px solid $header-selected-color;
+      
+      &:first-child {
+        border-left: 2px solid $header-selected-color;
+        margin-left: 0.3em;
+      }
+      
+      &.selected {
+        background-color: $header-selected-color;
+      }
+    }
+  }
+}
+
+#content {
+  margin-left: 0.3em;
+  margin-right: 0.3em;
+  
+  >a {
+    display: block;
+    margin-bottom: 1.0em;
+  }
+}
+
+#loader {
+  visibility: hidden;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  
+  &.show {
+    visibility: visible;
+  }
+}
+
+.blog-box {
+  border: 1px dashed $header-selected-color;
+  margin-bottom: 1.5em;
+  
+  @include box-shadow( 0px 5px 15px 0px rgba(0,0,0,0.75));
+  
+  >h2 {
+    margin-left: 0.4em;
+    margin-right: 0.4em;
+    margin-bottom: 0.2em;
+  }
+  
+  >p {
+    margin-left: 0.6em;
+    margin-right: 0.6em;
+  }
+  
+  >a {
+    display: block;
+    margin-left: 0.6em;
+    margin-right: 0.6em;
+    margin-bottom: 1.0em;
+  }
+  
+}
+
+footer {
+  background-color: $header-background-color;
+  
+  color: $header-font-color;
+  padding: 0.3em 0 0.4em 0.3em;
+}
