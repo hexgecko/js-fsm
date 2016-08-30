@@ -51,7 +51,7 @@ This demo shows a simple [Single Page Website](https://hexgecko.github.io/js-fsm
 
 The site have the following state:
 
-[Show the states the single-page website has](https://raw.githubusercontent.com/hexgecko/js-fsm/master/docs/webpage/img/states.jpg)
+![Show the states the single-page website has](https://raw.githubusercontent.com/hexgecko/js-fsm/master/docs/webpage/img/states.jpg)
 
 _where #x and #y are hash addresses to a page._
 
