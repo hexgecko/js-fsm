@@ -48,6 +48,14 @@ $max-width:               700px;
   animation-play-state: $value;
 }
 
+@mixin user-select($value: none) {
+  -webkit-touch-callout: $value;
+  -webkit-user-select: $value;
+  -moz-user-select: $value;
+  -ms-user-select: $value;
+  user-select: $value;
+}
+
 body {
   margin: 0;
   font-family: Tahoma, Verdana, Segoe, sans-serif;
@@ -133,6 +141,14 @@ header {
         background-color: $header-selected-color;
       }
     }
+    
+    div {
+      @include flex(1);
+    }
+    
+    button {
+      margin-right: 0.5em;
+    }
   }
 }
 
@@ -191,4 +207,79 @@ footer {
   
   color: $header-font-color;
   padding: 0.3em 0 0.4em 0.3em;
+  
+  @include user-select(none);
+  pointer-events: none;
+}
+
+#debug-info {
+  position: fixed;
+  top: 3px;
+  left: 703px;
+  z-index: 128;
+  font-size: 0.7em;
+  
+  &.hide {
+    display: none;
+  }
+  
+  table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    
+    tr:nth-child(even) {
+      background-color: #eee;
+      
+      &.current-state {
+        background-color: #9966ff;
+      }
+      
+      @keyframes fade-event-grey {
+        0% { background-color: red; }
+        100% { background-color: #eee; }
+      }
+      
+      &.last-event {
+        background-color: red;
+        opacity: 1;
+        animation: fade-event-grey 1s;
+        animation-delay: 0.3s;
+        animation-fill-mode: forwards;
+      }
+    }
+    
+    tr:nth-child(odd) {
+      background-color: #fff;
+      
+      &.current-state {
+        background-color:  #bb99ff;
+      }
+      
+      @keyframes fade-event-white {
+        0% { background-color: red; }
+        100% { background-color: #fff; }
+      }
+      
+      &.last-event {
+        background-color: red;
+        opacity: 1;
+        animation: fade-event-white 1s;
+        animation-delay: 0.3s;
+        animation-fill-mode: forwards;
+      }
+    }
+  
+    th {
+      text-align: left;
+      color: azure;
+      background-color: darkcyan;
+      padding: 3px 5px 3px 5px;
+    }
+  
+    td {
+      border: none;
+      maging: 0;
+      padding: 0 5px 0 5px;
+    }
+  }
 }
