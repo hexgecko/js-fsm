@@ -12,7 +12,7 @@ var FSM = function(defaultState) {
   this._runAction = false;
   this._stalledEvents = [];
   
-  this._hookErrorMissingStateCallback = undefined;
+  this._hookErrorMissingEventCallback = undefined;
   this._hookTableUpdateCallback = undefined;
   this._hookStateUpdateCallback = undefined;
 };
@@ -90,10 +90,11 @@ FSM.prototype.fireEvent = function(evt) {
     // check if the the event argument has an next:action
     var event = state[evt];
     if(event === undefined) {
-      if(this._hookErrorMissingStateCallback !== undefined) {
-        this._hookErrorMissingStateCallback(this._currentState, evt);
+      if(this._hookErrorMissingEventCallback !== undefined) {
+        this._hookErrorMissingEventCallback(this._currentState, evt);
+        return;
       }
-      throw("FSM:fireEvent(evt): missing event: " + evt + " in state: " + this._currentState);
+      throw("FSM:fireEvent(evt): missing event: " + evt + " in current state: " + this._currentState);
     }
 
     // run the action
@@ -221,11 +222,11 @@ FSM.prototype.remove = function(state, event) {
 }
 
 // set the callback function to call if the try to call event that is not in the current state
-FSM.prototype.hookErrorMissingState = function(callback) {
+FSM.prototype.hookErrorMissingEvent = function(callback) {
   if(typeof callback === "function") {
-    this._hookErrorMissingStateCallback = callback;
+    this._hookErrorMissingEventCallback = callback;
   } else {
-    this._hookErrorMissingStateCallback = undefined;
+    this._hookErrorMissingEventCallback = undefined;
   }
 }
 
