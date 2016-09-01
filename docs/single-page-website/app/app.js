@@ -113,7 +113,7 @@ websiteState.append(function() {
   }
   
   // this can happen if the user tries to change the address while the page is loading
-  websiteState.hookErrorMissingState(function() {
+  websiteState.hookErrorMissingEvent(function() {
     location.reload();
   });
   
