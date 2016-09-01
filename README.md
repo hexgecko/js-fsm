@@ -107,11 +107,11 @@ Clone the project:
 
 CDN:
 
-    https://rawgit.com/hexgecko/js-fsm/master/bin/0.0.3/fsm.js
+    https://rawgit.com/hexgecko/js-fsm/master/bin/0.0.4/fsm.js
 
 CDN minified:
 
-    https://rawgit.com/hexgecko/js-fsm/master/bin/0.0.3/fsm.min.js
+    https://rawgit.com/hexgecko/js-fsm/master/bin/0.0.4/fsm.min.js
 
 License
 -------
