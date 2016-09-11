@@ -17,9 +17,12 @@ _Constructor:_ Create a new FSM object by calling the constuctor, where the firs
 
     var fsm = FSM('init');
 
-_append:_ Takes a scope function as an argument, this function should then return a state table whose state is appended to the model.
+_append:_ Takes a callback function as an argument that can then return a state table whose state is appended to the model. The _this_ reference to the fsm object and the scope argument can be used to store object commanly used in the fsm, like services and data.
 
-    fsm.append(function() {
+    fsm.append(function(scope) {
+      var fsm = this;
+      
+      document.body.onload = fsm.event('ready');
       
       function onReady() {
         /* initalize things here... */
@@ -42,9 +45,13 @@ The state table has the following structure: [_Current State_, _Transition Event
   - _Next State_: Name of the next state. If a '<' given it will go to the last state.
   - _Action_: Function that perform some kind of _action_, can be omitted.
 
+_event_: Return a closure function that will fire an event with given argument when called, can be use as an argument for asynchronous callback.
+
+    document.body.onload = fsm.event('ready');
+
 _fireEvent_: Fires a transition event with arguments. It will call the action with the given arguments and change the state according to the FSM table. If there are no _current state_ and _event_ pairs the hook callback function will be called if it exist or an error will be thrown.
 
-    fsm.fireEvent('load', "page/home.template.html");
+    fsm.fireEvent('load', "home.template.html");
 
 _remove_: Remove the _current state_ from the fsm. The first argument _currentState_ can be a string or a regular expression as given in the _append_. The second argument is the _event_, if omited all _current state_ are removed, else only the state with the given event is removed.
 
@@ -107,11 +114,11 @@ Clone the project:
 
 CDN:
 
-    https://rawgit.com/hexgecko/js-fsm/master/bin/0.0.4/fsm.js
+    https://rawgit.com/hexgecko/js-fsm/master/bin/0.0.5/fsm.js
 
 CDN minified:
 
-    https://rawgit.com/hexgecko/js-fsm/master/bin/0.0.4/fsm.min.js
+    https://rawgit.com/hexgecko/js-fsm/master/bin/0.0.5/fsm.min.js
 
 License
 -------
